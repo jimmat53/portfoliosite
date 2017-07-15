@@ -16,7 +16,7 @@ import dj_database_url
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-
+TEMPLATE_PATH = os.path.join(PROJECT_ROOT, 'templates')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
@@ -44,7 +44,6 @@ INSTALLED_APPS = (
 
     # My Modules
     'datasource',
-    'hello',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -63,7 +62,7 @@ ROOT_URLCONF = 'datasource.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [TEMPLATE_PATH, ],
         'APP_DIRS': True,
         'OPTIONS': {
             'debug': True,
@@ -85,8 +84,12 @@ WSGI_APPLICATION = 'wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'portfolio/db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'portfoliodb',
+        'USER': 'portfoliodbuser',
+        'PASSWORD': 'Harmony@53',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
@@ -135,9 +138,7 @@ STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 STATIC_URL = '/static/'
 
 # Extra places for collectstatic to find static files.
-STATICFILES_DIRS = (
-    os.path.join(PROJECT_ROOT, 'datasource/static'),
-)
+STATICFILES_DIRS = [os.path.join(PROJECT_ROOT, 'static'),]
 
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/

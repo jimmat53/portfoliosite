@@ -23,6 +23,7 @@ def index(request):
 
 
     </pre>"""
-    return HttpResponse("<b>" + ascii_art + "</b>")
+    # return HttpResponse("<b>" + ascii_art + "</b>")
+    return render(request, 'index.html', {})
 
 
