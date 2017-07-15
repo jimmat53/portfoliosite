@@ -31,13 +31,20 @@ DEBUG = True
 # Application definition
 
 INSTALLED_APPS = (
+    # Defaults
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'hello'
+
+    # Standard libraries
+    'rest_framework',
+
+    # My Modules
+    'datasource',
+    'hello',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -70,7 +77,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'datasource.wsgi.application'
+WSGI_APPLICATION = 'wsgi.application'
 
 
 # Database
@@ -79,7 +86,7 @@ WSGI_APPLICATION = 'datasource.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, 'portfolio/db.sqlite3'),
     }
 }
 
@@ -129,7 +136,7 @@ STATIC_URL = '/static/'
 
 # Extra places for collectstatic to find static files.
 STATICFILES_DIRS = (
-    os.path.join(PROJECT_ROOT, 'static'),
+    os.path.join(PROJECT_ROOT, 'datasource/static'),
 )
 
 # Simplified static file serving.

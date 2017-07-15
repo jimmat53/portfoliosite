@@ -3,7 +3,9 @@ from django.http import HttpResponse
 
 # Create your views here.
 def index(request):
-    ascii_art = """ <pre>
+    ascii_art = """
+    <link rel="shortcut icon" type="image/png" href="{{STATIC_URL}}/favicon.ico"/>
+    <pre>
 
   ________  _____    __    __       __    __      ____  ________  __    __  _____ ___       ___     _____    ____    ______  ________  _________  ____   _____     _____   ____ _______
  (___  ___)(_   _)   \ \  / /       \ \  / /     (    )(___  ___)(  \  /  )/ ___/(  (       )  )   (  __ \  / __ \  (   __ \(___  ___)(_   _____)/ __ \ (_   _)   (_   _) / __ \\     /

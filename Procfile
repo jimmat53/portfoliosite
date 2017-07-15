@@ -1,1 +1,1 @@
-web: gunicorn datasource.wsgi --log-file -
+web: gunicorn wsgi --log-file -
